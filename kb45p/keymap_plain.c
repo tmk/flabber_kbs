@@ -12,14 +12,14 @@ const uint8_t keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [1] = KEYMAP(
     ESC, 1,   2,   3,   4,   5,   6,   7,   8,   9,   0,   LBRC,RBRC, \
     TRNS,F1,  F2,  F3,  F4,  F5,  F6,  F7,  F8,  GRV, QUOT,     ENT,  \
-    TRNS,CAPS,VOLU,VOLD,MUTE,BTLD,NO,  NO,  NO,  SLSH,     TRNS,TRNS, \
+    TRNS,CAPS,VOLU,VOLD,MUTE,NO,  NO,  NO,  NO,  SLSH,     TRNS,TRNS, \
          TRNS, TRNS,    TRNS,      TRNS,        TRNS, TRNS,TRNS       \
   ),
   /* navigation layer */
   [2] = KEYMAP(
-    ESC, 1,   2,   3,   4,   5,   6,   7,   8,   9,   0,   RBRC,BSLS, \
-    TRNS,F1,  F2,  F3,  F4,  F5,  F6,  F7,  F8,  F9,  QUOT,     ENT,  \
-    TRNS,CAPS,VOLU,VOLD,MUTE,BTLD,NO,  NO,  NO,  SLSH,     RSFT,CAPS, \
+    ESC, NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  UP,  NO,  BSPC, \
+    TRNS,NO,  NO,  NO,  NO,  NO,  NO,  HOME,PGUP,LEFT,RGHT,     ENT,  \
+    TRNS,TRNS,VOLU,VOLD,MUTE,NO,  NO,  END, PGDN,DOWN,     TRNS,TRNS, \
          TRNS, TRNS,    TRNS,      TRNS,        TRNS, TRNS,TRNS       \
   ),
 };

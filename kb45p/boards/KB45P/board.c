@@ -75,19 +75,29 @@ extern uint32_t __ram0_end__;
  */
 void __early_init(void) {
 
-#if defined(BOOTLOADER_ADDRESS)
-  if(*((unsigned long *)(SYMVAL(__ram0_end__) - 4)) == MAGIC_BOOTLOADER_NUMBER) { /* magic flag set */
+#if defined(STM32_BOOTLOADER_ADDRESS)
+  if(*((unsigned long *)(SYMVAL(__ram0_end__) - 4)) == 0xDEADBEEF) { /* magic flag set */
     *((unsigned long *)(SYMVAL(__ram0_end__) - 4)) = 0; /* erase the magic */
+    RCC->APB2ENR |= RCC_APB2ENR_SYSCFGCOMPEN;
+    SYSCFG->CFGR1 &= ~(SYSCFG_CFGR1_MEM_MODE);
+    SYSCFG->CFGR1 |= SYSCFG_CFGR1_MEM_MODE_0;
+    RCC->AHBENR |= RCC_AHBENR_GPIOBEN; // enable clock
+    GPIOB->MODER |= GPIO_MODER_MODER8_0; // output mode
+    GPIOB->OTYPER &= ~GPIO_OTYPER_OT_8; // pushpull
+    GPIOB->OSPEEDR &= ~GPIO_OSPEEDR_OSPEEDR8; // 2MHz 
+    GPIOB->PUPDR |= GPIO_PUPDR_PUPDR8; // enable pullup...
+    GPIOB->BSRR.H.set = (1<<8); // write high
     /* jump */
     asm(
-      "ldr     r0, =" BOOTLOADER_ADDRESS "\n\t"
+      // "ldr     r0, =" STM32_BOOTLOADER_ADDRESS "\n\t"
+      "ldr     r0, =0x1FFFC400\n\t"
       "ldr     r1, [r0, #0]\n\t"
       "mov     sp, r1\n\t"
       "ldr     r0, [r0, #4]\n\t"
       "bx      r0"
     );
   }
-#endif /* BOOTLOADER_ADDRESS */
+#endif /* STM32_BOOTLOADER_ADDRESS */
 
   stm32_clock_init();
 }
