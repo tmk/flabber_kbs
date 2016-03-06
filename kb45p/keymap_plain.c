@@ -17,7 +17,7 @@ const uint8_t keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
   /* navigation layer */
   [2] = KEYMAP(
-    ESC, NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  UP,  NO,  BSPC, \
+    ESC, BTLD,NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  UP,  NO,  BSPC, \
     TRNS,NO,  NO,  NO,  NO,  NO,  NO,  HOME,PGUP,LEFT,RGHT,     ENT,  \
     TRNS,TRNS,VOLU,VOLD,MUTE,NO,  NO,  END, PGDN,DOWN,     TRNS,TRNS, \
          TRNS, TRNS,    TRNS,      TRNS,        TRNS, TRNS,TRNS       \

@@ -27,3 +27,10 @@ static THD_FUNCTION(buttonThread, arg) {
 void early_init_hook(void) {
   chThdCreateStatic(waButtonThread, sizeof(waButtonThread), LOWPRIO, buttonThread, NULL);
 }
+
+void bootloader_jump(void) {
+	palSetPadMode(GPIOB, GPIOB_BUTTON, PAL_MODE_OUTPUT_PUSHPULL);
+	palSetPad(GPIOB, GPIOB_BUTTON);
+	chThdSleepMilliseconds(10);
+	NVIC_SystemReset();
+}
