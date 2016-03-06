@@ -27,9 +27,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 /*   at most 32 characters or the ugly hack in usb_main.c borks */
 #define MANUFACTURER "TMK"
 #define USBSTR_MANUFACTURER    'T', '\x00', 'M', '\x00', 'K', '\x00', ' ', '\x00', '\xc6', '\x00'
-#define PRODUCT "ChibiOS TMK test"
-#define USBSTR_PRODUCT         'C', '\x00', 'h', '\x00', 'i', '\x00', 'b', '\x00', 'i', '\x00', 'O', '\x00', 'S', '\x00', ' ', '\x00', 'T', '\x00', 'M', '\x00', 'K', '\x00', ' ', '\x00', 't', '\x00', 'e', '\x00', 's', '\x00', 't', '\x00'
-#define DESCRIPTION "TMK keyboard firmware over ChibiOS"
+#define PRODUCT "KB45P keyboard"
+#define USBSTR_PRODUCT         'K', '\x00', 'B', '\x00', '4', '\x00', '5', '\x00', 'P', '\x00', ' ', '\x00', 'k', '\x00', 'e', '\x00', 'y', '\x00', 'b', '\x00', 'o', '\x00', 'a', '\x00', 'r', '\x00', 'd', '\x00'
+#define DESCRIPTION "KB45P keyboard firmware (TMK/ChibiOS)"
 
 /* key matrix size */
 #define MATRIX_ROWS 4
