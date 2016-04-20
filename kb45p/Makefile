@@ -67,3 +67,6 @@ NKRO_ENABLE = yes       # USB Nkey Rollover
 
 include $(TMK_DIR)/tool/chibios/common.mk
 include $(TMK_DIR)/tool/chibios/chibios.mk
+
+program:
+	dfu-util -a 0 -s 0x8000000 -D build/ch.bin
