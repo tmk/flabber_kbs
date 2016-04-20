@@ -24,7 +24,7 @@ static THD_FUNCTION(buttonThread, arg) {
   }
 }
 
-void early_init_hook(void) {
+void hook_early_init(void) {
   chThdCreateStatic(waButtonThread, sizeof(waButtonThread), LOWPRIO, buttonThread, NULL);
 }
 
